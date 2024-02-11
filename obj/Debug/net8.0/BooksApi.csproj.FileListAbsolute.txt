@@ -18,6 +18,7 @@ C:\Users\MiguelFelipeReisBrit\Documents\Code\books-api\obj\Debug\net8.0\BooksApi
 C:\Users\MiguelFelipeReisBrit\Documents\Code\books-api\obj\Debug\net8.0\BooksApi.AssemblyInfo.cs
 C:\Users\MiguelFelipeReisBrit\Documents\Code\books-api\obj\Debug\net8.0\BooksApi.csproj.CoreCompileInputs.cache
 C:\Users\MiguelFelipeReisBrit\Documents\Code\books-api\obj\Debug\net8.0\BooksApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\MiguelFelipeReisBrit\Documents\Code\books-api\obj\Debug\net8.0\BooksApi.sourcelink.json
 C:\Users\MiguelFelipeReisBrit\Documents\Code\books-api\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\MiguelFelipeReisBrit\Documents\Code\books-api\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\MiguelFelipeReisBrit\Documents\Code\books-api\obj\Debug\net8.0\staticwebassets\msbuild.BooksApi.Microsoft.AspNetCore.StaticWebAssets.props
