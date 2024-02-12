@@ -41,7 +41,7 @@ public static class MinimalEndpoints
             await context.Response.WriteAsync($"Book with id {id} saved succesfully");
         });
 
-        app.MapGet("get", async (context) =>
+        app.MapGet("/get", async (context) =>
         {
             var bookId = context.Request.Query["bookId"];
 
@@ -51,8 +51,10 @@ public static class MinimalEndpoints
                 await context.Response.WriteAsJsonAsync(new { Message = "Missing bookId parameter" });
             }
 
-            var query = $"SELECT * FROM \"Books\" WHERE \"Id\" = '{bookId}'";
-            var result = await connection.QueryFirstOrDefaultAsync<Book>(query);
+            var parameters = new { BookId = Convert.ToInt32(bookId) };
+
+            var query = $"SELECT * FROM \"Books\" WHERE \"Id\" = @BookId";
+            var result = await connection.QueryFirstOrDefaultAsync<Book>(query, parameters);
             if (result != null)
             {
                 context.Response.StatusCode = 200;
@@ -72,7 +74,7 @@ public static class MinimalEndpoints
             }
         });
 
-        app.MapDelete("delete", async (context) =>
+        app.MapDelete("/delete", async (context) =>
         {
             var bookId = context.Request.Query["bookId"];
 
@@ -82,8 +84,10 @@ public static class MinimalEndpoints
                 await context.Response.WriteAsJsonAsync(new { Message = "Missing bookId parameter" });
             }
 
-            var deleteQuery = $"DELETE FROM \"Books\" WHERE \"Id\" = '{bookId}'";
-            var rowsAffected = await connection.ExecuteAsync(deleteQuery);
+            var parameters = new { BookId = Convert.ToInt32(bookId) };
+
+            var deleteQuery = $"DELETE FROM \"Books\" WHERE \"Id\" = @BookId";
+            var rowsAffected = await connection.ExecuteAsync(deleteQuery, parameters);
 
             if (rowsAffected > 0)
             {
