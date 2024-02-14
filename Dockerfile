@@ -16,4 +16,4 @@ RUN dotnet publish -c Release -o out
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS runtime
 WORKDIR /app
 COPY --from=publish /app/out ./
-ENTRYPOINT ["dotnet", "books-api.dll"]
+ENTRYPOINT ["dotnet", "BooksApi.dll"]
