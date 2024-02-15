@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  app:
+    image: books-api
+    ports:
+      - "8080:8080"
+    environment:
+      - ConnectionString=Host=postgres-container;Port=5432;Database=books-db;Username=root;Password=admin
+    depends_on:
+      - db
+
+  db:
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=books-db
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=admin
+    ports:
+      - "5432:5432" #Mapping the host port to the container port
